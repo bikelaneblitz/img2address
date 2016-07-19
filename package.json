@@ -1,0 +1,17 @@
+{
+  "name": "img-to-address",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dms2dec": "^1.1.0",
+    "exif": "^0.6.0",
+    "node-geocoder": "^3.13.0"
+  }
+}
