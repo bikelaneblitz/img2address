@@ -3,7 +3,7 @@ var dms2dec = require('dms2dec');
 var NodeGeocoder = require('node-geocoder');
 
 try {
-    new ExifImage({ image : '/Users/mattk/Desktop/28095453210_36e1064241_o.jpg' }, function (error, exifData) {
+    new ExifImage({ image : '/Users/Downloads/gps.jpg' }, function (error, exifData) {
         if (error)
             console.log('Error: '+error.message);
         else
@@ -15,15 +15,22 @@ try {
 
 			var options = {
 				provider: 'google',
+				httpAdapter: 'http',
 				key: 'AIzaSyDR7hQSxEDfJkNqynk8pr1sDRm0CNA0_1o'
 			};
 
 			var geocoder = NodeGeocoder(options);
 
-			geocoder.reverse({lat:decLatLong[1], 'long':decLatLong[0]}, ( err, res) =>{
+			geocoder.reverse({lat:decLatLong[0], lon:decLatLong[1]}, ( err, res) =>{
+			
+			//geocoder.reverse({lat:45.767, lon:4.833}, ( err, res) =>{
 				console.log(err);
 				console.log(res);
 			})
+			/*
+			geocoder.geocode('29 champs elysée paris', function(err, res) {
+				console.log(res);
+			});*/
     });
 } catch (error) {
     console.log('Error: ' + error.message);
