@@ -1,6 +1,7 @@
 var ExifImage = require('exif').ExifImage;
 var dms2dec = require('dms2dec');
 var NodeGeocoder = require('node-geocoder');
+var dateFormat = require('dateformat');
 
 try {
     new ExifImage({ image : '/Users/Downloads/gps.jpg' }, function (error, exifData) {
@@ -8,8 +9,9 @@ try {
             console.log('Error: '+error.message);
         else
 
-            //console.log(exifData); // Do something with your data!
+            console.log(exifData); // Do something with your data!
 			console.log(exifData.image.ModifyDate);
+			//date is in yy:mm:dd hr:mm:ss format. need to parse
 			var decLatLong = dms2dec(exifData.gps.GPSLatitude,exifData.gps.GPSLatitudeRef,exifData.gps.GPSLongitude,exifData.gps.GPSLongitudeRef);
 			console.log ( decLatLong );
 
